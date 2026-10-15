@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.courses"
-        minSdk = 31
+        minSdk = 24
         targetSdk = 37
         versionCode = 1
         versionName = "1.0"
@@ -22,7 +22,8 @@ android {
     buildTypes {
         release {
             optimization {
-                enable = false
+                enable = true
+                packageScope = setOf("androidx.**", "kotlin.**", "kotlinx.**")
             }
         }
     }
@@ -51,4 +52,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
+
+    implementation("androidx.compose.material:material-icons-extended")
 }
